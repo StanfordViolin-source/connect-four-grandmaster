@@ -1,0 +1,19 @@
+{
+  "name": "connect-four",
+  "version": "1.0.0",
+  "description": "Connect Four with strong bot and two-player mode",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite --host --port 4173",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "playwright": "^1.58.1",
+    "vite": "^7.3.1"
+  }
+}

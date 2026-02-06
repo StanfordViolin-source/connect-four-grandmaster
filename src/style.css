@@ -1,0 +1,252 @@
+:root {
+  --bg: radial-gradient(circle at 20% 20%, #111727 0, #0b1120 32%, #070c18 60%, #03060f 100%);
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-strong: rgba(255, 255, 255, 0.12);
+  --accent: #5af0d9;
+  --accent-2: #9b7bff;
+  --text: #f3f6ff;
+  --muted: #8ea3c7;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --radius: 18px;
+  font-family: "SF Pro Display", "Avenir Next", "Segoe UI", "Noto Sans", sans-serif;
+  color: var(--text);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  margin: 4px 0 6px;
+  font-size: 42px;
+  letter-spacing: -0.8px;
+}
+
+.accent {
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(90, 240, 217, 0.5);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0;
+}
+
+.lede {
+  margin: 6px 0 0;
+  color: var(--muted);
+  max-width: 620px;
+}
+
+.top-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  background: var(--panel);
+  color: var(--text);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0a0f1d;
+}
+
+.secondary {
+  background: var(--panel-strong);
+}
+
+.ghost {
+  background: var(--panel);
+}
+
+.large {
+  font-size: 16px;
+  padding: 14px 18px;
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 18px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.status-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  color: var(--muted);
+}
+
+.value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tips-card ul {
+  padding-left: 20px;
+  margin: 6px 0;
+  color: var(--muted);
+}
+
+.tips-card li {
+  margin: 4px 0;
+}
+
+.canvas-wrap {
+  position: relative;
+  min-height: 580px;
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 40% 20%, rgba(90, 240, 217, 0.08), rgba(0, 0, 0, 0.75));
+  backdrop-filter: blur(6px);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.menu-card {
+  background: rgba(7, 12, 24, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  padding: 26px 26px 22px;
+  width: min(460px, 86vw);
+  box-shadow: var(--shadow);
+}
+
+.menu-card h2 {
+  margin: 6px 0 8px;
+  font-size: 28px;
+}
+
+.menu-card p {
+  color: var(--muted);
+}
+
+.menu-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.toast {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 18px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+kbd {
+  padding: 3px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 980px) {
+  .stage {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .top-buttons {
+    align-self: flex-end;
+  }
+}

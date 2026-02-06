@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect Four Grandmaster</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Classic, competitive, polished</p>
+        <h1>Connect Four <span class="accent">Grandmaster</span></h1>
+        <p class="lede">Play locally with a friend or challenge a tournament-grade bot that fights to win. Undo your last turn in bot mode to explore sharper lines.</p>
+      </div>
+      <div class="top-buttons">
+        <button id="home-btn" class="ghost">Home</button>
+        <button id="restart-btn" class="ghost">Restart</button>
+        <button id="undo-btn" class="primary">Undo last turn</button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <div class="sidebar">
+        <div class="card status-card">
+          <div class="label">Mode</div>
+          <div id="mode-label" class="value">Menu</div>
+          <div class="label">Turn</div>
+          <div id="turn-label" class="value">–</div>
+          <div class="label">Bot strength</div>
+          <div id="bot-label" class="value">Deep search</div>
+          <div class="label">Status</div>
+          <div id="status-label" class="value">Waiting to start</div>
+        </div>
+        <div class="card tips-card">
+          <div class="label">Controls</div>
+          <ul>
+            <li>Click a column to drop a disc</li>
+            <li>Press <kbd>f</kbd> to toggle fullscreen</li>
+            <li>Press <kbd>u</kbd> to undo (bot mode)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="game-canvas" aria-label="Connect Four board"></canvas>
+        <div id="menu-overlay" class="overlay">
+          <div class="menu-card">
+            <p class="eyebrow">Welcome</p>
+            <h2>Choose your battle</h2>
+            <p>Face a ruthless algorithm with redo power, or play a thoughtful two-player match on one screen.</p>
+            <div class="menu-actions">
+              <button id="play-bot" class="primary large">Play vs high-power bot</button>
+              <button id="play-pvp" class="secondary large">Play 2‑player (hot seat)</button>
+            </div>
+          </div>
+        </div>
+        <div id="toast" class="toast" aria-live="polite"></div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
